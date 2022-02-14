@@ -6,6 +6,14 @@
  */
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
+  let sum = 0;
+  arr.forEach((num) => {
+    let appendNum = false
+    if ((num/3) - Math.floor(num/3) == 0){ appendNum = true; }
+    if ((num/5) - Math.floor(num/5) == 0){ appendNum = true; }
+    if(appendNum){ sum = sum + num; }
+  })
+  return sum
 };
 
 /**
@@ -15,6 +23,20 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  let isValid = false
+  if (str.replace(/[CGTA]/g, '').length == 0)
+  {
+    let charFound = "";
+    str.replace(/[^CGTA]/g, '').split("").forEach((char) => {
+      if(char == "C" && charFound.indexOf("C") == -1){charFound = charFound + "C";}
+      if(char == "G" && charFound.indexOf("G") == -1){charFound = charFound + "G";}
+      if(char == "T" && charFound.indexOf("T") == -1){charFound = charFound + "T";}
+      if(char == "A" && charFound.indexOf("A") == -1){charFound = charFound + "A";}
+    })
+    if (charFound.length > 0) 
+      isValid = true
+  }
+  return isValid
 };
 
 /**
@@ -24,6 +46,17 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  let validSEQ = "TGAC"
+  let strComplementaryDNA = ""
+  if(isValidDNA(str)) 
+  {
+    validSEQ.split("").forEach((c) => {
+      str.split("").forEach((e) => {
+        if ( c == e ){ strComplementaryDNA = strComplementaryDNA + c; } 
+      })
+    }) 
+  }
+  return strComplementaryDNA
 };
 
 /**
@@ -33,6 +66,17 @@ const getComplementaryDNA = str => {
  */
 const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
+  let isPrime = true
+  if (n > 1) {
+    // looping through 2 to number-1
+    for (let i = 2; i < n; i++) {
+        if (n % i == 0) {
+            isPrime = false;
+            break;
+        }
+    }
+  }
+  return isPrime
 };
 
 /**
@@ -49,6 +93,22 @@ const isItPrime = n => {
 const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
+  let MatrixBody = []
+  for ( let i = 0; i < n; i++){
+    if (n > 1)
+    {
+      var LineBody = []
+      for (let j = 0; j < n; j++){
+        LineBody.push(fill)
+      }
+    }
+    else
+    {
+      LineBody = fill;
+    }
+    MatrixBody.push(LineBody)
+  }
+  return MatrixBody;
 };
 
 /**
@@ -66,6 +126,15 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+  let coverStaff = 0
+  staff.forEach((schedule) => {
+    schedule.rota.forEach((weekday) => {
+      if (weekday == day){
+        coverStaff = coverStaff + 1
+      }
+    })
+  })
+  return (coverStaff <= 3)
 };
 
 module.exports = {
