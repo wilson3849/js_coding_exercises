@@ -11,8 +11,8 @@ function getSquares(nums) {
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
   // Your code here!
-  let wordStr = "";
-  let wordcount = 0;
+  let wordStr = ""
+  let wordcount = 0
   words.forEach((word) => {
     wordcount++
     if (wordcount > 1)
@@ -36,7 +36,7 @@ function getTotalSubjects(people) {
 function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
-  let foundIngredient = false;
+  let foundIngredient = false
   menu.forEach((item) => {
     item.ingredients.forEach((hasIngredient) => {
       if(hasIngredient == ingredient) 
