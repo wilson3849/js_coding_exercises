@@ -81,4 +81,4 @@ describe("isValidDNA", () => {
       expect(areWeCovered(staff,"Wednesday")).toBe(false);
       expect(areWeCovered(staff,"Tuesday")).toBe(false);     
     });
-  });;
+  });

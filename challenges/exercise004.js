@@ -56,7 +56,6 @@ function getCities(users) {
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
   let numberArr = []
   nums.forEach((num) => {
     numberArr.push(Math.round(Math.sqrt(num) * 100)/100)
@@ -67,7 +66,6 @@ function getSquareRoots(nums) {
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  // Your code here
   let SentencesArr = []
   sentences.forEach((sentence) => {
     if(sentence.toUpperCase().indexOf(str.toUpperCase()) != -1)
@@ -78,7 +76,6 @@ function findSentencesContaining(sentences, str) {
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  // Your code here
   let sideArr = []
   triangles.forEach((sides) => {
     let longestside = 0

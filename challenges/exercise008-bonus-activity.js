@@ -20,10 +20,13 @@ function highestNumber(numbers){
     if (!numbers) throw new Error("numbers are required");
     // Your solution using the spread operator here!
     let highNum = numbers[0]
-    numbers.forEach(num => {
-        if(num > highNum){ highNum = num}
+    let numArr =  numbers.filter(function(num){
+        if (num > highNum) {
+            highNum = num
+        }
+        return num == highNum 
     })
-    return highNum
+    return numArr[numArr.length - 1]
 }
 
 function splitThatString(string){
