@@ -12,15 +12,15 @@ function generateInitials(firstName, lastName) {
 function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
-  let value = (originalPrice * (100 + vatRate)/100)
-  return Math.round(value * 100)/100
+  let vat = (originalPrice * (100 + vatRate)/100)
+  return Math.round(vat * 100)/100
 }
 
 function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
-  let value = (originalPrice * (100 - reduction)/100)
-  return Math.round(value * 100)/100 
+  let vat = (originalPrice * (100 - reduction)/100)
+  return Math.round(vat * 100)/100 
 }
 
 function getMiddleCharacter(str) {
@@ -34,7 +34,7 @@ function getMiddleCharacter(str) {
 
 function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
-  let wordArr = word.split("")
+  const wordArr = word.split("")
   let output = ""
   for (let i=word.length-1;i>=0;i--)
   {
@@ -56,8 +56,8 @@ function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
   let count = 0
   for (let i = 0; i < users.length; i++) {
-    let Object = users[i];    
-    if(Object.type == "Linux") {
+    let userRec = users[i];    
+    if(userRec.type == "Linux") {
       count++
     }
   }

@@ -1,91 +1,44 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
-  let numberArr = []
-  nums.forEach((num) => {
-    if (num < 1)
-      numberArr.push(num)
-  })
-  return numberArr  
+  return nums.filter(function(num) { if(num < 1) return num })  
 }
 
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  // Your code here
-  let nameArr = []
-  names.forEach((name) => {
-    if (name[0].toUpperCase() == char)
-      nameArr.push(name)
-  })
-  return nameArr   
+  return names.filter(function(name) { if(name[0].toUpperCase() == char) return name})   
 }
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  // Your code here
-  let wordArr = []
-  let matchWord = "to "
-  words.forEach((word) => {
-    if (word.substring(0,matchWord.length) == matchWord)
-      wordArr.push(word)
-  })
-  return wordArr   
+  const matchWord = "to "
+  return words.filter(function(word) { if(word.substring(0,matchWord.length) == matchWord) return word })   
 }
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
-  let numberArr = []
-  nums.forEach((num) => {
-    if (num - Math.floor(num) == 0)
-      numberArr.push(num)
-  })
-  return numberArr    
+  return nums.filter(function(num) { if(num - Math.floor(num) == 0) return num })    
 }
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  // Your code here
-  let cityArr = []
-  users.forEach((user) => {
-    cityArr.push(user.data.city.displayName)
-  })
-  return cityArr    
+  return users.map((user) => user.data.city.displayName)    
 }
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  let numberArr = []
-  nums.forEach((num) => {
-    numberArr.push(Math.round(Math.sqrt(num) * 100)/100)
-  })
-  return numberArr   
+  return nums.map((num) => Math.round(Math.sqrt(num) * 100)/100)   
 }
 
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  let SentencesArr = []
-  sentences.forEach((sentence) => {
-    if(sentence.toUpperCase().indexOf(str.toUpperCase()) != -1)
-      SentencesArr.push(sentence)
-  })
-  return SentencesArr   
+  return sentences.filter(function(sentence) { if(sentence.toUpperCase().indexOf(str.toUpperCase()) != -1) return sentence })
 }
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  let sideArr = []
-  triangles.forEach((sides) => {
-    let longestside = 0
-    sides.forEach((side) => {
-      if (side > longestside) 
-        longestside = side
-    })
-    sideArr.push(longestside)
-  })
-  return sideArr   
+  return triangles.map(function(triangle) { return Math.max.apply(null, triangle) })   
 }
 
 module.exports = {

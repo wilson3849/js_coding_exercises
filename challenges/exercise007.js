@@ -23,7 +23,6 @@ const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
   let interval = 1
-  
   if (step === undefined){interval = 1} else {interval = step} 
   let numArr = []
   for (let i = start; i<= end; i+=interval)

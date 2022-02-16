@@ -2,14 +2,12 @@
 
 function printColours(colours){
     if (!colours) throw new Error("colour is required");
-    // Your solution using the spread operator here!
     return colours
 }
 
 function shoppingList(list, newItem){
     if (!list) throw new Error("list is required");
     if (!newItem) throw new Error("newItem is required");
-    // Your solution using the spread operator here!
     let newList = []
     list.forEach(item => newList.push(item))
     newItem.forEach(item => newList.push(item))
@@ -18,7 +16,6 @@ function shoppingList(list, newItem){
 
 function highestNumber(numbers){
     if (!numbers) throw new Error("numbers are required");
-    // Your solution using the spread operator here!
     let highNum = numbers[0]
     let numArr =  numbers.filter(function(num){
         if (num > highNum) {
@@ -31,7 +28,6 @@ function highestNumber(numbers){
 
 function splitThatString(string){
     if (!string) throw new Error("string is required");
-    // Your solution using the spread operator here!
     let arrString = []
     string.split("").forEach(char => {
         arrString.push(char)
@@ -44,7 +40,6 @@ function splitThatString(string){
 
 function addressLookUp(user){
     if (!user) throw new Error("user is required");
-    // Your solution using optional chaining here!
     let postcode = undefined
     if (user.address !== undefined ){
         if(user.address.postcode !== undefined)

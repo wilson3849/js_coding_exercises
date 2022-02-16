@@ -62,14 +62,13 @@ const arrShift = arr => {
 const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
-  let termfound = false
   for (let element of Object.values(haystack)) {
     if(element.toString().toUpperCase().indexOf(searchTerm.toUpperCase()) != -1)
     {
       return true  
     }
   }  
-  return termfound
+  return false
 };
 
 const getWordFrequencies = str => {
@@ -78,13 +77,13 @@ const getWordFrequencies = str => {
   let arrWord =[]
   let arrCount = []
   strArr.forEach((word) => {
-    let wordcheck = word.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
-    let pos = arrWord.indexOf(wordcheck)
+    let wordCheck = word.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
+    let pos = arrWord.indexOf(wordCheck)
     if (pos > -1){
       let value = arrCount[pos] + 1
       arrCount[pos] = value
     } else {
-      arrWord.push(wordcheck)
+      arrWord.push(wordCheck)
       arrCount.push(1)
     }
   })

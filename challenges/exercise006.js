@@ -46,7 +46,7 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required")
-  let validSEQ = "TGAC"
+  const validSEQ = "TGAC"
   let strComplementaryDNA = ""
   if(isValidDNA(str)) 
   {
