@@ -6,14 +6,16 @@
  */
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required")
-  let sum = 0
+  let sumOfNum = 0
+  const checkDividedBy3 = 3
+  const checkDividedBy5 = 5
   arr.forEach((num) => {
     let appendNum = false
-    if ((num/3) - Math.floor(num/3) == 0){ appendNum = true }
-    if ((num/5) - Math.floor(num/5) == 0){ appendNum = true }
-    if(appendNum){ sum = sum + num }
+    if ((num/checkDividedBy3) - Math.floor(num/checkDividedBy3) == 0){ appendNum = true }
+    if ((num/checkDividedBy5) - Math.floor(num/checkDividedBy5) == 0){ appendNum = true }
+    if(appendNum){ sumOfNum += num }
   })
-  return sum
+  return sumOfNum
 }
 
 /**
@@ -92,23 +94,23 @@ const isItPrime = n => {
 const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required")
   if (fill === undefined) throw new Error("fill is required")
-  let LineBody
-  let MatrixBody = []
+  let lineBody
+  let matrixBody = []
   for ( let i = 0; i < n; i++){
     if (n > 1)
     {
-      LineBody = []
+      lineBody = []
       for (let j = 0; j < n; j++){
-        LineBody.push(fill)
+        lineBody.push(fill)
       }
     }
     else
     {
-      LineBody = fill
+      lineBody = fill
     }
-    MatrixBody.push(LineBody)
+    matrixBody.push(lineBody)
   }
-  return MatrixBody
+  return matrixBody
 }
 
 /**
@@ -128,11 +130,7 @@ const areWeCovered = (staff, day) => {
   if (day === undefined) throw new Error("day is required")
   let coverStaff = 0
   staff.forEach((schedule) => {
-    schedule.rota.forEach((weekday) => {
-      if (weekday == day){
-        coverStaff = coverStaff + 1
-      }
-    })
+    schedule.rota.forEach((weekday) => { if (weekday == day) coverStaff = coverStaff + 1 })
   })
   return (coverStaff <= 3)
 }

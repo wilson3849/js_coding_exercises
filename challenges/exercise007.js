@@ -5,9 +5,7 @@
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
   let total = 0
-  n.toString().split("").forEach(num => {
-    total += eval(num)
-  })
+  n.toString().split("").forEach(num => total += eval(num))
   return total
 };
 

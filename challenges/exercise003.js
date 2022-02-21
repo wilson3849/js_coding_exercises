@@ -20,9 +20,7 @@ function camelCaseWords(words) {
 function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
   let totalSubject = 0
-  people.forEach((person) => {
-    totalSubject += person.subjects.length
-  })
+  people.forEach((person) => totalSubject += person.subjects.length )
   return totalSubject
 }
 
@@ -31,10 +29,7 @@ function checkIngredients(menu, ingredient) {
   if (!ingredient) throw new Error("ingredient is required");
   let foundIngredient = false
   menu.forEach((item) => {
-    item.ingredients.forEach((hasIngredient) => {
-      if(hasIngredient == ingredient) 
-        foundIngredient = true
-    }) 
+    item.ingredients.forEach((hasIngredient) => { if (hasIngredient === ingredient) foundIngredient = true }) 
   })  
   return foundIngredient
 }
@@ -43,10 +38,10 @@ function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
   let numberArr = []
-  arr1.forEach((Num1) => {
-    arr2.forEach((Num2) => {
-      if ((Num1 == Num2) && (numberArr.findIndex(N => N==Num1) == -1)){
-        numberArr.push(Num1)
+  arr1.forEach((num1) => {
+    arr2.forEach((num2) => {
+      if ((num1 === num2) && (numberArr.findIndex(n => n === num1) === -1)){
+        numberArr.push(num1)
       }
     })
   })

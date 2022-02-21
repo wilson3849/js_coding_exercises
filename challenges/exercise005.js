@@ -10,29 +10,29 @@ const findNextNumber = (nums, n) => {
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
-  let numCounts = str.split("")
-  let numArr = [1, 0]
+  const numCounts = str.split("")
+  const numArr = [1, 0]
   let countArr = [0 , 0]
   numCounts.forEach((element) => { 
     if (element == 1){ countArr[0] = countArr[0] + 1 }
     if (element == 0){ countArr[1] = countArr[1] + 1 }
   })
-  let result = {}
+  let digitCount = {}
   for (let i = 0; i < numArr.length; i++) {
-    result[numArr[i]] = countArr[i]
+    digitCount[numArr[i]] = countArr[i]
   }
-  return result
+  return digitCount
 }
 
 const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");
-  let output = 0
+  let reverseNums = 0
   let numArr = n.toString().split("")
   for (let i=numArr.length-1;i>=0;i--)
   {
-    output = output + numArr[i] * Math.pow(10, [i])
+    reverseNums = reverseNums + numArr[i] * Math.pow(10, [i])
   }
-  return output
+  return reverseNums
 }
 
 const sumArrays = arrs => {
@@ -87,11 +87,11 @@ const getWordFrequencies = str => {
       arrCount.push(1)
     }
   })
-  let result = {}
+  let wordFrequeniesCounts = {}
   for (let i = 0; i < arrWord.length; i++) {
-    result[arrWord[i]] = arrCount[i]
+    wordFrequeniesCounts[arrWord[i]] = arrCount[i]
   }
-  return result
+  return wordFrequeniesCounts
 };
 
 module.exports = {
